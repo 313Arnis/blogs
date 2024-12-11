@@ -3,7 +3,7 @@
 
 
 class Database {
-    public function query(){
+    public function query($sql){
 
       $dsn = "mysql:host=localhost; port=3306;user=root;password=;dbname=blog_arnis;charset=utf8mb4";
 
@@ -11,7 +11,7 @@ class Database {
       $pdo = new PDO($dsn);
 
         // Sagatavot pieprasijumu
-      $statement = $pdo->prepare("SELECT * FROM posts");
+      $statement = $pdo->prepare("$sql");
 
       // Izpildit vaicajumu
       $statement->execute();
