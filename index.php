@@ -4,6 +4,7 @@ include "functions.php";
 require "Database.php";
 
 $db = new Database();
+$db->connect();
 $posts = $db->query("SELECT * FROM posts");
 
 echo "<ul>";
