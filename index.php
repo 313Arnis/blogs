@@ -3,12 +3,13 @@
 include "functions.php";
 require "Database.php";
 
-$db = new Database();
-$db->connect();
-$posts = $db->query("SELECT * FROM posts");
+$config = require("config.php");
+
+$db = new Database($config["database"]);
+$posts = $db->query("SELECT * FROM posts")->fetchAll();
 
 echo "<ul>";
 foreach ($posts as $post) {
     echo "<li>" . "{$post['content']}". "</li>";  
 }
-echo "</ul>";
+echo "</ul>"; 
