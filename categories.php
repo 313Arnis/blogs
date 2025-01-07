@@ -8,7 +8,7 @@ $config = require("config.php");
 echo "<h1>Categories</h1>";
 
 $db = new Database($config["database"]);
-
+echo "";
 echo "<form>";
 
 $sql = "SELECT * FROM categories";
@@ -32,3 +32,15 @@ foreach ($categories as $categorie) {
     echo "<li>" . "{$categorie['category_name']}". "</li>";  
 }
 echo "</ul>"; 
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
