@@ -5,7 +5,7 @@ require "Database.php";
 
 $config = require("config.php");
 
-echo "<h1>Categories</h1>";
+
 
 $db = new Database($config["database"]);
 echo "";
@@ -24,23 +24,5 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != ""){
 
 $categories = $db->query($sql, $params)->fetchAll();
 
-echo "<input name='search_query' />";
-echo "<button>Meklet</button>";
-echo "</form>";
-echo "<ul>";
-foreach ($categories as $categorie) {
-    echo "<li>" . "{$categorie['category_name']}". "</li>";  
-}
-echo "</ul>"; 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<script src="https://cdn.tailwindcss.com"></script>
-</body>
-</html>
+
+require "views/categories.view.php";
