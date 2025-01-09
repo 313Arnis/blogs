@@ -1,3 +1,5 @@
+<?php require "components/header.php" ?>
+<?php require "components/navbar.php" ?>
 <!DOCTYPE html>
 <html lang="lv">
 <head>

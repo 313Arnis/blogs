@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Serve static files (CSS, JS, images) directly
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Default rule: Route all other requests to index.php
+RewriteRule ^ index.php [QSA,L]
