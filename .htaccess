@@ -1,9 +1,7 @@
 RewriteEngine On
 
-# Serve static files (CSS, JS, images) directly
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+# Allow static files (CSS, JS, images) to be served directly
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf)$ [NC]
 
-# Default rule: Route all other requests to index.php
+# Route all other requests to index.php
 RewriteRule ^ index.php [QSA,L]

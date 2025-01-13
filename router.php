@@ -7,12 +7,12 @@ $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 
 
-
+$routes = require "routes.php";
 if ($uri === "/") {
     require "controllers/index.php";
-} elseif ($uri === "/about") {
+} else if ($uri === "/about") {
     require "controllers/story.php";
-} elseif ($uri === "/categories") {
+} else if ($uri === "/categories") {
     require "controllers/categories.php";
 } else {
     http_response_code(404);
