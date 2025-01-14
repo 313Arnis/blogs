@@ -17,5 +17,5 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 
 $posts = $db->query($sql, $params)->fetchAll();
 
-require "views/index.view.php"; 
+require "views/posts/index.view.php"; 
 ?>
