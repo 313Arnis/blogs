@@ -3,11 +3,14 @@
 
 <h1>Izveidot bloga ierakstu</h1>
 
-<form method="POST">
+<form method="POST" >
     <label>
-        <input name="content"/>
+        <input name="content" value="<?= $_POST['content'] ?? "" ?>"/>
     </label>
     <button>Iesniegt</button>
 </form>
-<?php 
+
+<?php if(isset($errors["content"])) { ?>
+    <p><?= $errors["content"] ?></p>
+  <?php } ?>
 
