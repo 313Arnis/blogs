@@ -1,13 +1,17 @@
 <?php require "views/components/header.php" ?>
 <?php require "views/components/navbar.php" ?>
-<h1><?= $post ["content"] ?></h1>
 
+<h1><?= htmlspecialchars($post["content"]) ?></h1>
 
 <a href="/edit?id=<?= $post['id']; ?>">Rediģēt šo ierakstu</a>
-<form method="POST" action="/delete-post?id=<?= $post['id']; ?>">
 
-<button>Izdzest</button>
+
+<form method="POST" action="/delete">
+
+    <input type="hidden" name="id" value="<?= $post['id']; ?>">
+
+   
+    <button >Izdzēst</button>
 </form>
+
 <?php require "views/components/footer.php" ?>
-
-
