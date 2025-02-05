@@ -15,5 +15,5 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 
 $categories = $db->query($sql, $params)->fetchAll();
 
-require "views/categories.view.php";  
+require "views/categories/index.view.php";  
 ?>

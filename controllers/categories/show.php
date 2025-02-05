@@ -1,14 +1,15 @@
 <?php
 
 if (!isset($_GET["id"]) || $_GET ["id"] == "" ){
-     redirectIfNotFound(); 
+ 
+    redirectIfNotFound(); 
 }
-$sql = "SELECT * FROM posts WHERE id = :id";
+$sql = "SELECT * FROM categories WHERE id = :id";
 $params = ["id" => $_GET ["id"]];
 
-$post = $db->query($sql, $params)->fetch();
+$category = $db->query($sql, $params)->fetch();
 
-if (!$post) {
+if (!$category) {
     redirectIfNotFound ();
 }
 
