@@ -9,6 +9,9 @@
 
 -- );
 
+-- ADD COLUMN category_id INT;
+
+
 INSERT INTO posts 
 (content)
  VALUES 

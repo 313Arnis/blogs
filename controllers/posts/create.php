@@ -4,26 +4,35 @@ require "Validator.php";
 
 $pageTitle = "Pievieno ierakstu";
 
+$sql = "SELECT * FROM categories";
+$params = [];
+$categories = $db->query($sql, $params)->fetchAll();
 
 
 
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $category_id= $_POST['id'];
+    $content = $_POST['content'];
     $errors = [];
-    if(!Validator ::string($_POST["content"],max: 50)){
+    if(!Validator::string($_POST["content"], min: 0, max: 50)){
         $errors["content"] = "Saturam jābūt ievadītam, bet ne garākam par 50 rakstzīmēm";
     }
-  
+
+    if (!Validator::number($category_id, min: 3, max: 25)){
+        $errors["id"] = "Kategorijas id neatbilst prasibam";
+    }
+
+
     if (empty($errors)) {
-        $content = $_POST['content'];  
-
-
-        $sql = "INSERT INTO posts (content) VALUES (:content)";
-        $params = ["content" => $content];
-
         
+       
+
+        $sql = "INSERT INTO posts (content, category_id) VALUES (:content, :category_id)";
+        $params = ["content" => $content ,"category_id" => $category_id];
         $db->query($sql, $params);
 
      
+
         header("Location: /");
         exit();
     }
